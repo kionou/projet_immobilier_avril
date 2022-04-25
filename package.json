@@ -1,0 +1,23 @@
+{
+  "name": "projet_immobilier_avril",
+  "version": "1.0.0",
+  "description": "projet d'immobilier pour le mois d'avril",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kionou/projet_immobilier_avril.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kionou/projet_immobilier_avril/issues"
+  },
+  "homepage": "https://github.com/kionou/projet_immobilier_avril#readme",
+  "dependencies": {
+    "ejs": "^3.1.7",
+    "express": "^4.17.3"
+  }
+}
