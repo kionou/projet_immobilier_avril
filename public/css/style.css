@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    padding-top: 41px;
+    margin: 0; 
+}
+
+.navbar-brand img{
+    width: 60px;
+    height: 50px;
+}
+
+.ImageHeader{
+    background: url('/images/1.jpg') no-repeat center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+}
+
+form{
+   
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 65%;
+    height: 155px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 4px solid sandybrown;
+}
+
+.input{
+  margin-right: 46px;
+}
+
+select{
+    width: 261px;
+    height: 55px;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+}
+
+.boutton{
+    width: 261px;
+    height: 55px;
+    /* margin-bottom: 10px; */
+    text-align: center;
+    border: none;
+    background-color: #66666b;
+    color: white;
+    border-radius: 5px;
+    font-size: 23px;
+    font-family: 'Satisfy', cursive;
+}
+
+.content{
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-info{
+    border: 1px solid red;
+    width: 80%;
+}
+p{
+    color: black;
+}
