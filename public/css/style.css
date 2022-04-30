@@ -236,6 +236,7 @@ select{
     height: 200px;
     padding: 5px;
     object-fit: cover;
+    vertical-align: middle;
 }
 .card-body{
     display: flex;
