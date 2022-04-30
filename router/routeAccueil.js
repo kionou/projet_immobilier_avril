@@ -5,6 +5,7 @@ let router= express.Router();
 
 
 router.get('/',controlleurs.AccueilGet);
+router.get('/detail',controlleurs.DetailGet)
 
 
 
