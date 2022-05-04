@@ -25,12 +25,92 @@
         </nav>
         <div class="fas fa-bars"></div>
     </header>
-
-    <div class="ImageHeader">
-        <div class="image">
-            <img src="/images/2.jpg" alt="">
+        <div class="trait-blue"></div>
+        <div class="container-fluid">
+                <% success.forEach(function(bien){ %>
+            <div class="container">
+                <div class="texte">
+                    <p>Location <%= bien.type_bien %> <%= bien.superficie %>, <%= bien.ville %> <%= bien.commune %> </p>
+                </div>
+                <div class="ImageHeader">
+                    <div class="image">
+                        <img src="uploads/<%= bien.image %>" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="container-info">
+                <div class="info-right">
+                    <h1 class="info-texte">LOCATION <%= bien.type_bien %> <%= bien.ville %></h1>
+                    <h3  class="info-texte"><%= bien.commune %> - <%= bien.nom_bien %></h3>
+                    <p  class="info-texte"><%= bien.type_bien %> <%= bien.piece %></p>
+                    <div class="icon">
+                        <div class="icon-content">
+                            <i class="fas fa-door-closed"></i>
+                            <samp> <%= bien.chambre %> </samp>
+                        </div>
+                        <div class="icon-content">
+                            <i class="fas fa-bath"></i>
+                            <samp> <%= bien.piece %> </samp>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <div class="icon-content">
+                            <i class="fas fa-door-closed"></i>
+                            <samp> <%= bien.douche %> </samp>
+                        </div>
+                        <div class="icon-content">
+                            <i class="fas fa-bath"></i>
+                            <samp> <%= bien.superficie %></samp>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-left">
+                    <h5>Loyer <%= bien.prix_bien %> F CFA/mois charges comprises</h5>
+                </div>
+            </div>
+            <div class="container-desc">
+                <div class="description">
+                    <h5>Description du bien</h5>
+                    <p><%= bien.description %></p>
+                </div>
+                <div id="trait_dessus">
+                    <!-- <hr> -->
+                </div>
+                <div class="plus-biens">
+                    <h5>Les + du bien</h5>
+                    <p> <%= bien.detail %></p>
+                </div>
+                <div id="trait_dessus">
+                    <!-- <hr> -->
+                </div>
+                <div class="proximite">
+                    <h5>Services à proximité</h5>
+                    <p><%= bien.service %> </p>
+                </div>
+            </div>
+            <div class="container-image">
+                <div class="Images">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="Images">
+                    <img src="/images/2.jpg" alt="">
+                </div>
+                <div class="Images">
+                    <img src="/images/3.jpg" alt="">
+                </div>
+                <div class="Images">
+                    <img src="/images/1.jpg" alt="">
+                </div>
+                <div class="Images">
+                    <img src="/images/2.jpg" alt="">
+                </div>
+                <div class="Images">
+                    <img src="/images/3.jpg" alt="">
+                </div>
+            </div>
+            <% }); %>
         </div>
-    </div>
+   
 
 
 

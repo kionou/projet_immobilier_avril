@@ -8,3 +8,32 @@ bars.addEventListener('click',()=>{
     navbar.classList.toggle('active')
 
 })
+
+
+// $(document).ready(function(){
+//     $('#open').click(function(){
+//         $('.modal-container').css('transform','scale(1)');
+//     });
+
+//      $('#close').click(function(){
+//         $('.modal-container').css('transform','scale(1)');
+//     });
+// })
+
+let modal = document.querySelector('#modal-container');
+let open = document.querySelector('#open');
+let close = document.querySelector('#close');
+
+open.onclick = function() {
+    modal.style.display = "block";
+}
+
+close.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

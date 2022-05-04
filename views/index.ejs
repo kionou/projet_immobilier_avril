@@ -13,15 +13,15 @@
 <body>
 
     <header>
-        <a href="#" class="logo">
+        <a href="/" class="logo">
             <img class="img-thumbnail" src="/images/logopng.png"/>
         </a>
         <nav class="navbar">
             <ul>
-                <li><a href="#" class="active">Accueil</a></li>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="/" class="active">Accueil</a></li>
+                <li><a href="/recherche">Recherche</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/connexion">Mon compte</a></li>
             </ul>
         </nav>
         <div class="fas fa-bars"></div>
@@ -30,19 +30,19 @@
 
 
    <div class="ImageHeader">
-       <div class="tete">dxgjvfxf</div>
-       <form action="" method="POST">
-        <select id="biens" name="biens" class="input">
+       <div class="tete">Pour trouver la location qui vous ressemble</div>
+       <form action="/" method="POST">
+        <select id="biens" name="bien" class="input">
             <option value="" disabled selected >-- TYPES DE BIENS --</option>
-            <option value="maisons">Maisons</option>
-            <option value="appartements">Appartements</option>
+            <option value="maison">Maisons</option>
+            <option value="appartement">Appartements</option>
           </select>
-          <select id="pieces" name="pieces" class="input">
+          <select id="pieces" name="piece" class="input">
             <option value="" disabled selected>-- NOMBRES DE PIECE(S) --</option>
-            <option value="2pièces">2pièces</option>
-            <option value="3pièces">3pièces</option>
-            <option value="4pièces">4pièces</option>
-            <option value="5pièces">5pièces</option>
+            <option value="2 pièce(s)">2 pièce(s)</option>
+            <option value="3 pièce(s)">3 pièce(s)</option>
+            <option value="4 pièce(s)">4 pièce(s)</option>
+            <option value="5 pièce(s)">5 pièce(s)</option>
             <option value="studio">Studio</option>
           </select>
            <button class="boutton">Rechercher</button>
@@ -53,31 +53,31 @@
            <h2>Les biens qui pourraient vous intéresser</h2>
        </div>
        <div class="content-info">
+         <% success.forEach(function(bien){ %>
         <div class="content-card">
             <div class="card-image">
-                <a href="#!">
-                <img src="/images/3.jpg" alt="">
-                    
+                <a href="/detail/<%= bien.id %>">
+                <img src="/images/3.jpg" alt="">   
                   </a>
             </div>
             <div class="card-body">
                 <div class="body-text">
-                <h3>ABIDJAN</h3>
+                <h3><%= bien.ville %></h3>
                 </div>
                 <div class="body-text">
-                <p>TYPES DE BIENS</p>
+                <p><%= bien.type_bien %></p>
                 </div>
                 <div class="body-text">
-                <p>5 pièce(s)/ 47m²</p>
+                <p> <%= bien.piece %>/<%= bien.superficie %></p>
                 </div>
                 <div class="icon">
                     <div class="icon-content">
                         <i class="fas fa-door-closed"></i>
-                        <samp>x5</samp>
+                        <samp><%= bien.chambre %></samp>
                     </div>
                     <div class="icon-content">
                         <i class="fas fa-bath"></i>
-                        <samp>x2</samp>
+                        <samp> <%= bien.douche %></samp>
                     </div>
                 </div>
                     <div class="">
@@ -86,17 +86,16 @@
                         </div>
                     </div>
                     <div class="">
-                        <p>loyer 100.000 F CFA/mois</p>
+                        <p>loyer <%= bien.prix_bien %> F CFA/mois</p>
                     </div>
                     <div class="btn">
                          <button class="btncard">
-                              <a href="#">Détail</a>
+                              <a href="/detail/<%= bien.id %>">Détail</a>
                          </button>
                     </div>
-                
             </div>
         </div>
-
+        <% }); %>
         <div class="content-card">
             <div class="card-image">
                 <a href="#!">
@@ -320,7 +319,7 @@
         <div class="content-texte">
             <h2>CONTACTEZ-NOUS</h2>
         </div>
-    <div class="contact">
+    <div class="contact" id="contact">
         <div class="house info">
             <div class="imag">
                 <i class="fas fa-home"></i>
@@ -357,19 +356,10 @@
             </div>
         </div>
 
-    </div>
-
-      
-       
+    </div>     
    </div>
 
-  
 
-
-   <p>bonjour le monde</p>
-   <p>Location de logements en agence immobilière</p>
-
-<p>Pour trouver la location qui vous ressemble</p>
 
 
 

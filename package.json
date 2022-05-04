@@ -18,6 +18,8 @@
   "homepage": "https://github.com/kionou/projet_immobilier_avril#readme",
   "dependencies": {
     "ejs": "^3.1.7",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "multer": "^1.4.4",
+    "mysql": "^2.18.1"
   }
 }

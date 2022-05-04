@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet"/> -->
+    <link rel="stylesheet" href="/css/inscription.css">
+    <title>Inscription</title>
+</head>
+<body>
+
+    <header>
+      <a href="/" class="logo">
+        <img class="img-thumbnail" src="/images/logopng.png" />
+      </a>
+      <nav class="navbar">
+        <ul>
+          <li><a href="/" class="active">Accueil</a></li>
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="/connexion">Mon compte</a></li>
+        </ul>
+      </nav>
+      <div class="fas fa-bars"></div>
+    </header>
+
+    <div class="ImageHeader">
+        <section class="content">
+          <div class="cadre">
+            <div class="image">
+              <img src="/images/logopng.png" alt="">
+            </div>
+            <div class="text-content">
+              <h1>INSCRIPTION</h1>
+              <p>Inscrivez vous pour beneficier de nos produits.</p>
+        
+            </div>
+            <form action="" method="post">
+              <div class="name"> 
+                <input type="text" class="input" name="nom" placeholder="Nom">
+                <input type="text" class="input" name="prenom" placeholder="Premon">
+              </div>
+              <div class="mail">
+                <input type="email" class="input1" name="email" placeholder="Adresse Email">
+                <input type="tel" class="input1" name="numero" placeholder="Numéro téléphone">
+              </div>
+              <div class="name">
+                <input type="password" class="input" name="password" placeholder="Mot de passe">
+                <input type="password" class="input" name="confirmer_password" placeholder="Confirmer le Mot de passe">
+              </div>
+                <button  id="open" >Enregister</button>
+            </form>
+          </div>
+        </section>
+    </div>
+
+<div class="modal-container" id="modal-container">
+  <div class="modal">
+    <i class="fas fa-heart"></i>
+    <h3>modal popup box</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+    <button>ok</button>
+    <i id="close" class="fas fa-times"></i>
+  </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/0eca8d30fc.js" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
