@@ -1,11 +1,11 @@
 console.log('bonjour le monde');
 let bars = document.querySelector('.fa-bars');
-let navbar = document.querySelector('.navbar')
+let navbar = document.querySelector('.toggle')
 console.log(navbar);
 
 bars.addEventListener('click',()=>{
     bars.classList.toggle('fa-times');
-    navbar.classList.toggle('active')
+    navbar.style.display='block'
 
 })
 
@@ -20,20 +20,27 @@ bars.addEventListener('click',()=>{
 //     });
 // })
 
+
+
+
+
+
 let modal = document.querySelector('#modal-container');
 let open = document.querySelector('#open');
 let close = document.querySelector('#close');
 
-open.onclick = function() {
-    modal.style.display = "block";
-}
+// open.onclick = function() {
+//     modal.style.display = "block";
+// }
 
-close.onclick = function() {
+close.onclick = function(e) {
+    e.preventDefault()
     modal.style.display = "none";
-}
+} 
 
 window.onclick = function(event) {
+    event.preventDefault()
     if (event.target == modal) {
         modal.style.display = "none";
-    }
+    } 
 }

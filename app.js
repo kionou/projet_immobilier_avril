@@ -1,6 +1,8 @@
 const express = require('express');
+const session = require('express-session');
 const base = require('./others/data');
 const router = require('./router/routeAccueil');
+const routerAdmin = require('./router/routeAdmin');
 const app = express();
 
 
@@ -13,8 +15,14 @@ base.connect((err) =>{
         app.use(express.static('public'));
         app.use('/uploads',express.static('./uploads'))
         app.use(express.json())
-        app.use(express.urlencoded({ extended: false })) ;
+        app.use(express.urlencoded({ extended: false }));
+        app.use(session({ 
+            secret: 'keyboard cat',
+             resave: false,
+             saveUninitialized: true,
+             cookie: { maxAge: 60000000000 }}))
         app.use('/',router)
+        app.use('/Admin',routerAdmin)
 
 
     } else {

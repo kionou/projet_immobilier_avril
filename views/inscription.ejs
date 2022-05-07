@@ -20,7 +20,7 @@
         <ul>
           <li><a href="/" class="active">Accueil</a></li>
           <li><a href="#">Accueil</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/#contact">Contact</a></li>
           <li><a href="/connexion">Mon compte</a></li>
         </ul>
       </nav>
@@ -36,36 +36,75 @@
             <div class="text-content">
               <h1>INSCRIPTION</h1>
               <p>Inscrivez vous pour beneficier de nos produits.</p>
-        
             </div>
+            <% if (typeof alert !="undefined" && alert.message) { %>
+              <div class="validation">
+                <%= alert.message %>
+              </div>
+              <% }%>
             <form action="" method="post">
               <div class="name"> 
-                <input type="text" class="input" name="nom" placeholder="Nom">
+                <div>
+                    <input type="text" class="input" name="nom" placeholder="Nom">
+                    <% if (typeof alert !="undefined" && alert.nom) { %>
+                      <div class="validation">
+                        <%= alert.nom.msg %>
+                      </div>
+                      <% }%>
+                </div>
+               <div>
                 <input type="text" class="input" name="prenom" placeholder="Premon">
+                  <% if (typeof alert !="undefined" && alert.prenom) { %>
+                    <div class="validation">
+                      <%= alert.prenom.msg %>
+                    </div>
+                    <% }%>
+               </div>
               </div>
               <div class="mail">
-                <input type="email" class="input1" name="email" placeholder="Adresse Email">
-                <input type="tel" class="input1" name="numero" placeholder="Numéro téléphone">
+                <div class="mail1">
+                  <input type="email" class="input1" name="email" placeholder="Adresse Email">
+                  <% if (typeof alert !="undefined" && alert.email) { %>
+                    <div class="validation">
+                      <%= alert.email.msg %>
+                    </div>
+                    <% }%>
+                </div>
+                <div class="mail1">
+                 <input type="tel" class="input1" name="numero" placeholder="Numéro téléphone">
+                  <% if (typeof alert !="undefined" && alert.numero) { %>
+                    <div class="validation">
+                      <%= alert.numero.msg %>
+                    </div>
+                    <% }%>
+                </div>
               </div>
               <div class="name">
-                <input type="password" class="input" name="password" placeholder="Mot de passe">
-                <input type="password" class="input" name="confirmer_password" placeholder="Confirmer le Mot de passe">
+                  <input type="password" class="input" name="password" placeholder="Mot de passe">
+                   <input type="password" class="input" name="confirmer_password" placeholder="Confirmer le Mot de passe">
               </div>
-                <button  id="open" >Enregister</button>
+                <% if (typeof alert !="undefined" && alert.confirmer_password) { %>
+                  <div class="validation">
+                    <%= alert.confirmer_password.msg %>
+                  </div>
+                  <% }%>
+                <button name="modal" value="true" id="open" >Enregister</button>
             </form>
           </div>
         </section>
     </div>
 
-<div class="modal-container" id="modal-container">
-  <div class="modal">
-    <i class="fas fa-heart"></i>
-    <h3>modal popup box</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-    <button>ok</button>
-    <i id="close" class="fas fa-times"></i>
-  </div>
-</div>
+ <% if (show_modal){ %>
+    <div class="modal-container" id="modal-container" style="display:block">
+      <div class="modal">
+        <i class="fas fa-heart"></i>
+        <h3>modal popup box</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        <button><a href="/connexion">ok</a></button>
+        <i id="close" class="fas fa-times"></i>
+      </div>
+    </div>
+<% } %>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/0eca8d30fc.js" crossorigin="anonymous"></script>

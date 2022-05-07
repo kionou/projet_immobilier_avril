@@ -12,15 +12,15 @@
 <body>
    
     <header>
-        <a href="#" class="logo">
+        <a href="/" class="logo">
             <img class="img-thumbnail" src="/images/logopng.png" />
         </a>
         <nav class="navbar">
             <ul>
-                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="/" class="active">Accueil</a></li>
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Accueil</a></li>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="/#contact">Conctat</a></li>
             </ul>
         </nav>
         <div class="fas fa-bars"></div>
@@ -33,11 +33,27 @@
             <div class="image">
                 <img src="/images/logopng.png" alt="">
             </div>
+            <% if (typeof alert !="undefined" && alert) { %>
+                <div class="validation">
+                    <%= alert %>
+                </div>
+                <% }%>
             <div class="texte">
                 <h2>CONNEXION</h2>
             </div>
-            <form action="/" method="post">
-                <input type="text" name="nom" placeholder="Nom">
+            <form action="/connexion
+            " method="post">
+                    <% if (typeof alert !="undefined" && alert.email) { %>
+                        <div class="validation">
+                            <%= alert.email.msg %>
+                        </div>
+                        <% }%>
+                <input type="email" name="email" placeholder="Adresse Email">
+                        <% if (typeof alert !="undefined" && alert.password) { %>
+                            <div class="validation">
+                                <%= alert.password.msg %>
+                            </div>
+                            <% }%>
                 <input type="password" name="password" placeholder="Mot de passe">
                 <button type="submit" value="Submit">Connecter</button>
             </form>

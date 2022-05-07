@@ -12,29 +12,29 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">
+        <a href="/" class="logo">
             <img class="img-thumbnail" src="/images/logopng.png" />
         </a>
         <nav class="navbar">
             <ul>
-                <li><a href="#" class="active">Accueil</a></li>
+                <li><a href="/" class="active">Accueil</a></li>
                 <li><a href="#">Accueil</a></li>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/connexion">Mon compte</a></li>
             </ul>
         </nav>
         <div class="fas fa-bars"></div>
     </header>
         <div class="trait-blue"></div>
         <div class="container-fluid">
-                <% success.forEach(function(bien){ %>
+                <% bien.forEach(function(bien){ %>
             <div class="container">
                 <div class="texte">
                     <p>Location <%= bien.type_bien %> <%= bien.superficie %>, <%= bien.ville %> <%= bien.commune %> </p>
                 </div>
                 <div class="ImageHeader">
                     <div class="image">
-                        <img src="uploads/<%= bien.image %>" alt="">
+                        <img src="/<%= bien.image %>" alt="">
                     </div>
                 </div>
             </div>
@@ -89,10 +89,12 @@
                 </div>
             </div>
             <div class="container-image">
+                <% image.forEach(function(image){ %>
                 <div class="Images">
-                    <img src="/images/1.jpg" alt="">
+                    <img src="/<%= image.nom %>" alt="">
                 </div>
-                <div class="Images">
+                <% }); %>
+                <!-- <div class="Images">
                     <img src="/images/2.jpg" alt="">
                 </div>
                 <div class="Images">
@@ -106,7 +108,7 @@
                 </div>
                 <div class="Images">
                     <img src="/images/3.jpg" alt="">
-                </div>
+                </div> -->
             </div>
             <% }); %>
         </div>

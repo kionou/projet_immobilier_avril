@@ -151,19 +151,19 @@ header .fa-bars {
 .ImageHeader {
     background: url('/images/1.jpg') no-repeat center;
     background-size: 100% 100%;
-    height: 712px;
+    height: 100vh;
     width: 100%;
     text-align: center;
     bottom: 0;
     border-radius: 10px;
     position: relative;
-    /* transition: all .2s linear; */
+    transition: all .2s linear
 }
 
 .cadre{
     width: 780px;
-    height: 581px;
-    border: 1px solid blue;
+    height: 627px;
+    border: 1px solid #2288ff;
     position: absolute;
     left: 50%;
     top: 43%;
@@ -223,21 +223,29 @@ input:focus {
 }
 
 .input1 {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     height: 3rem;
-    width: 568px;
+    width: 652px;
     padding: 5px;
     font-size: 18px;
     outline: none;
     border: 1px solid;
     font-family: 'Roboto Serif',
     serif;
+    margin-right: 11px;
+}
+.mail1{
+    margin-bottom: 25px;
+}
+
+.validation{
+    color: #f8001b;
 }
 
 button {
     width: 9rem;
     height: 3rem;
-    margin-bottom: 10px;
+    /* margin: 10px 0; */
     text-align: center;
     border: none;
     background-color: #2288ff;
@@ -258,10 +266,20 @@ button:hover {
 .name{
     display: flex;
     /* border: 1px  solid red; */
-    width: 88%;
-    height: 82px;
+    width: auto;
+    /* height: 82px; */
     align-items: center;
     align-content: center;
+    margin-bottom: 25px;
+}
+.name1 {
+    display: flex;
+    /* border: 1px  solid red; */
+    width: auto;
+    /* height: 82px; */
+    align-items: center;
+    align-content: center;
+    margin-top: 25px;
 }
 
 .mail{
@@ -269,16 +287,16 @@ button:hover {
     flex-direction: column;
     justify-content: flex-end;
     /* border: 1px solid blue; */
-    width: 88%;
-    height: 137px;
+    width: 100%;
+    height: auto;
     /* align-items: center;
     align-content: center; */
 }
 
 .modal-container{
-    display: none;
-    justify-content: center;
-    align-items: center;
+    display:none;
+    /* justify-content: center;
+    align-items: center; */
     height: 100%;
     width: 100%;
     position: absolute;
@@ -287,6 +305,7 @@ button:hover {
     background: rgba(0, 0, 0, .3);
     /* transform: scale(0); */
     z-index: 1;
+    opacity: 1;
 }
 
 .modal-container .modal{
@@ -297,7 +316,10 @@ button:hover {
     background: #fff;
     border-radius: 5px;
     text-align: center;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .modal-container .modal h3 {

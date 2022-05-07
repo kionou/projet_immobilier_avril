@@ -87,19 +87,20 @@ header .fa-bars{
     }
 
     header .navbar {
-        position: fixed;
+        /* position: fixed; */
         top: -100rem;
         left: 50%;
-        transform: translate(-50%);
+        /* transform: translate(-50%); */
         z-index: 1000;
         transition: .2s linear;
         background-color: antiquewhite;
         width: 100%;
-        opacity: 0;
+        /* opacity: 0; */
     }
 
     header .navbar ul {
         flex-flow: column;
+        display: none;
     }
 
     header .navbar ul li {

@@ -17,7 +17,7 @@
             <img class="img-thumbnail" src="/images/logopng.png"/>
         </a>
         <nav class="navbar">
-            <ul>
+            <ul class="toggle">
                 <li><a href="/" class="active">Accueil</a></li>
                 <li><a href="/recherche">Recherche</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -57,7 +57,7 @@
         <div class="content-card">
             <div class="card-image">
                 <a href="/detail/<%= bien.id %>">
-                <img src="/images/3.jpg" alt="">   
+                <img src="<%= bien.image %> " alt="">   
                   </a>
             </div>
             <div class="card-body">

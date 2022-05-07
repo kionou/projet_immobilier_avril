@@ -1,12 +1,17 @@
 const { request,response } = require("express");
 const dataBien = require("../others/requette");
+const {validationResult} = require("express-validator");
+const jsonwt = require("../midlleware/jsonwebtoken");
+const { mailer } = require("../midlleware/nodemailer");
+const bcrypt = require("bcryptjs/dist/bcrypt");
 
 
 const controlleurs = class {
     static AccueilGet = (req=request , res=response)=>{
         dataBien.AfficheBien()
         .then(success=>{
-            // console.log('suuuccess',success);
+            console.log('sucesssaccau',success)
+          
             res.render('index',{success})
         })
         .catch(error=>{
@@ -29,32 +34,113 @@ const controlleurs = class {
     }
 
 
-    static DetailGet =  (req=request , res=response)=>{
+    static DetailGet = async (req=request , res=response)=>{
         const id = req.params.id
-        dataBien.AfficheBienId(id)
-        .then(success=>{
-            // console.log('suuuccess',success);
-            res.render('detail',{success})
-        })
-        .catch(error=>{
-            console.log('errror',error);
-        })
+        const bien = await   dataBien.AfficheBienId(id)
+        const image = await  dataBien.AffichePhotoId(id)
+        
+            res.render('detail',{bien:bien, image:image})
+        
     }
 
 
     static Authentification =  (req=request , res=response)=>{
+        if (req.session.user) {
+            res.redirect('/profil')
+        } else {
         res.render('connexion')
+            
+        } 
+    }
+
+     static AuthentificationPost =  (req=request , res=response)=>{
+         const result = validationResult(req)
+        if (!result.isEmpty() ) {
+            const error = result.mapped()
+            console.log('rrfrrkrk',error ); 
+             res.render('connexion',{alert:error})
+        }else{
+            dataBien.connectUser(req.body).then(success =>{
+                let password = req.body.password;
+                let  hash = success.password;
+                let  dataUser = {
+                       id:success.id,    
+              }
+               let passwordUser = bcrypt.compareSync(password,hash);
+              if (  passwordUser) {
+                  req.session.user= dataUser;
+                  console.log('ma session est :',req.session);
+                   res.redirect('/profil')
+              } else {
+                 res.render('connexion',{alert:'mot de passe incorrect'}) 
+              }
+
+
+            }).catch(error =>{
+
+                res.render('connexion',{alert:'Email ou le Mot de passe incorrect !'})
+            })
+
+        }
+    
     }
 
 
-    static registre =  (req=request , res=response)=>{
-        res.render('inscription')
+
+     static AuthentificationToken =(req=request,res=response) =>{
+             const TokenId = req.params.id;
+             const DecodedToken= jsonwt.VerifierToken(TokenId);
+              dataBien.InsertionUser(DecodedToken)
+             console.log('eeee',TokenId,DecodedToken);
+             res.redirect('/connexion')
+    }
+
+
+    static registreGet =  (req=request , res=response)=>{
+        const show_modal = false
+        res.render('inscription',{show_modal})
+    }
+
+    static registrePost =  (req=request , res=response)=>{
+         const result = validationResult(req)
+
+        if (!result.isEmpty() ) {
+            const error = result.mapped()
+            console.log('rrfrrkrk',error ); 
+        const show_modal = false
+
+             res.render('inscription.ejs',{alert:error,show_modal})
+        }
+        else{
+            dataBien.VerifUserUniqu(req.body.email).then(success=>{
+                const token= jsonwt.CreerToken(req.body);
+                mailer(req.body.email,token)
+                const show_modal = req.body.modal
+                res.render("inscription",{show_modal})
+                
+                  
+            }).catch(error=>{
+                const show_modal = false
+                res.render('inscription',{alert:error,show_modal})
+            })
+        }
+
     }
 
     
     static search =  (req=request , res=response)=>{  
         res.render('recherche')
     }
+
+    static AfficheProfil =  (req=request , res=response)=>{  
+        res.render('profil')
+    }
+
+    static logout =  (req=request , res=response)=>{ 
+        req.session.destroy() 
+        res.redirect('/connexion')
+    }
+
 }
 
 

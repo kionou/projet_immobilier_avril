@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@1,200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    height: 100%;
+    margin: 0;
+    padding: 90px 10px 10px;
+    margin-top: 3px;
+    background-color: #fafafa;
+    font-family: 'Roboto Serif',
+        serif;
+    /* background: url('/images/2.jpg') no-repeat center ;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%; */
+}
+
+
+/* navbar debut */
+header {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 1rem;
+    transition: .2s linear;
+    z-index: 1000;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -9px #cacd
+}
+
+.logo img {
+    width: 60px;
+    height: 50px;
+}
+
+header .navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+header .navbar ul li {
+    margin: 0 1rem;
+}
+
+header .navbar ul li a {
+    font-size: 1.5rem;
+    color: #333;
+    transition: .2s linear;
+    text-decoration: none;
+}
+
+header .navbar ul li .active,
+header .navbar ul li a:hover {
+    color: #2288ff;
+
+}
+
+header .fa-bars {
+    font-size: 3rem;
+    color: #2288ff;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width:768px) {
+    html {
+        font-size: 55%;
+    }
+
+    header .fa-bars {
+        display: block;
+    }
+
+    header .navbar {
+        position: fixed;
+        top: -100rem;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 1000;
+        transition: .2s linear;
+        background-color: antiquewhite;
+        width: 100%;
+        opacity: 0;
+    }
+
+    header .navbar ul {
+        flex-flow: column;
+    }
+
+    header .navbar ul li {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    header .navbar ul li a {
+        display: block;
+        font-size: 3rem;
+    }
+
+    header .nav-toggle {
+        top: 5.5rem;
+        opacity: 1;
+    }
+
+    active {
+        top: 5.5rem;
+        opacity: 1;
+    }
+
+}
+
+/* navbar fin */
