@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fafafa;
+}
+
+
+
+/* css voir bien debut */
+.bien {
+    width: 100%;
+    height: 100%;
+}
+
+.left {
+    border: 1px solid red;
+    width: 30%;
+    height: 100vh;
+    display: block;
+}
+
+.right {
+  
+    width: 100%;
+    height: 100%;
+    
+  
+}
+
+.right .texte{
+  
+    width: 100%;
+    height: 100px;
+    margin: 30px 0;
+    text-align: center;
+}
+.left .container{
+    width: 100%;
+    height: 100%;
+}
+.table{
+    border: 1px solid #2288ff;
+}
+
+
+.logo{
+    width: 100%;
+    height: 120px;
+    border: 1px solid black;
+}
+
+
+ .menu {
+    /* position: absolute;
+    top: 102px;
+    right: 11px; */
+    /* padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.5s;
+    width: 200px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 20%); */
+    height: 280px;
+    border: 1px solid #2288ff;
+
+}
+
+
+
+ /* .menu ::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    transform: rotate(45deg);
+} */
+
+.menu ul {
+    width: 100%;
+    height: 100%;
+}
+
+ .menu ul li {
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #2288ff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 24%;
+    cursor: pointer;
+}
+
+.menu ul li img {
+    max-width: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+ .menu ul li:hover img {
+    opacity: 1;
+}
+
+.menu ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+ .menu ul li:hover a {
+    color: #2288ff;
+}
+
+.tableau{
+    width: 100%;
+}
+
+/* css voir bien fin */
+
+
+/* css de users debut */
+.users {
+    /* border: 1px solid blue; */
+    width: 70%;
+    height: 100%;
+    /* visibility: hidden; */
+    display: block;
+}
+
+.users .texte {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 100px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+/* css user fin */
+
+/* css de contact debut */
+
+.contact {
+    /* border: 1px solid blue; */
+    width: 70%;
+    height: 100%;
+    /* visibility: hidden; */
+    display: none;
+}
+
+.contact .texte {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 100px;
+    margin: 30px 0;
+    text-align: center;
+}
+/* css de contact fin */

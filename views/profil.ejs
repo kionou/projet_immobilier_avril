@@ -18,21 +18,62 @@
         </a>
         <nav class="navbar">
             <ul>
-                <li><a href="/" class="active">Accueil</a></li>
+                
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#contact">Contact</a></li>
                 
-                <li><button><a href="/logout">Mon compte</a></button></li>
+                <!-- <li><button><a href="/logout">Mon compte</a></button></li> -->
             </ul>
         </nav>
-        <div class="fas fa-bars"></div>
+        <div class="dropdow">
+            <% success.forEach(function(user){ %>
+            <div class="image" onclick="menuToggle()">
+                <div class="profile" >
+                    <img src="<%=user.image %>" alt="">
+                </div>
+                <p><%=user.nom %></p>
+            </div>
+            <% }); %>
+            <div class="menu">
+                <ul>
+                        <% success.forEach(function(user){ %>
+                    <li><img src="/images/user.png" alt=""><a href="/profil" >Voir profil</a></li>
+                
+                    <li><img src="/images/editer.png" alt=""><a href="editer/<%=user.id %>" >Modifier profil</a></li>
+                    <% }); %>
+                    <li><img src="/images/search.png" alt=""><a href="#">Recherche</a></li>
+                    <li onclick="logout()"><img src="/images/logout.png" alt=""><a href="/logout" >Se déconnecter</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
+   
+    <div class="container-profil">
+        <% success.forEach(function(user){ %>
+        <div class="profil-content">
+            <div class="profil-image">
+                <img src="<%=user.image %>" alt="">
+            </div> 
+            <div id="trait_dessus">
+                <!-- <hr> -->
+            </div>
+            <div class="profil-body">
+                <div>
+                     <p>Nom : <span><%=user.nom %></span></p>
+                      <p>Prenom : <span><%=user.prenom %></span></p>
+                    <p>Adresse Email : <span><%=user.email %></span></p>
+                    <p>Téléphone : <span><%=user.numero %></span></p>
+                    <p>Ville Actuelle : <span><%= user.lieu %></span></p>
 
-    
+                </div>
+            </div>  
+        </div>
+        <% }); %>
+    </div>
 
 
 
     <script src="https://kit.fontawesome.com/0eca8d30fc.js" crossorigin="anonymous"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/profil.js"></script>
 </body>
 </html>

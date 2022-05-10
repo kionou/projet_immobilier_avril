@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet"/> -->
+    <link rel="stylesheet" href="/css/Profil.css">
+    <title>editerProfil</title>
+</head>
+<body>
+<header>
+    <a href="/" class="logo">
+        <img class="img-thumbnail" src="/images/logopng.png" />
+    </a>
+    <nav class="navbar">
+        <ul>
+
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+            <!-- <li><button><a href="/logout">Mon compte</a></button></li> -->
+        </ul>
+    </nav>
+    <div class="dropdow">
+        <% success.forEach(function(user){ %>
+            <div class="image" onclick="menuToggle()">
+                <div class="profile">
+                    <img src="<%=user.image %>" alt="">
+                </div>
+                <p>
+                    <%=user.nom %>
+                </p>
+            </div>
+            <% }); %>
+                <div class="menu">
+                    <ul>
+                        <% success.forEach(function(user){ %>
+                            <li ><img src="/images/user.png" alt=""><a href="/profil">Voir profil</a></li>
+
+                            <li ><img src="/images/editer.png" alt=""><a href="eidter/<%=user.id %>">Modifier
+                                    profil</a></li>
+                            <% }); %>
+                                <li><img src="/images/search.png" alt=""><a href="#">Recherche</a></li>
+                                <li onclick="logout()"><img src="/images/logout.png" alt=""><a href="/logout">Se
+                                        déconnecter</a></li>
+                    </ul>
+                </div>
+    </div>
+</header>
+
+<div class="form">
+    <form action="/editer" method="post" id="form" enctype="multipart/form-data">
+        <div class="barre">
+            <div class="barre-content">
+                <p>Modifier mon compte</p>
+                <button id="open">Sauvegarder</button>
+
+
+            </div>
+        </div>
+        <div class="Input">
+            <% success.forEach(function(user){ %>
+                <div class="input-content">
+                    <input type="hidden" name="id" value="<%=user.id %>" > 
+                    <input type="text" name="nom" id="inputvalue" value="<%=user.nom %>" placeholder="Nom">
+                    <input type="text" name="prenom" id="inputvalue" value="<%=user.prenom %>" placeholder="Prenom">
+                    <input type="email" name="email" id="inputvalue" value="<%=user.email %>" placeholder="Adresse Email">
+                    <input type="tel" name="numero" id="inputvalue" value="<%=user.numero %>" placeholder="Téléphone">
+                    <input type="text" name="lieu" id="inputvalue" value="<%=user.lieu %>" placeholder="Ville actuelle">
+                    <input type="hidden" name="password" value="<%=user.password %>">
+                    <label id="image">
+                        <input type="file" class="inputfile" value="<%=user.image %>" name="image">
+                        <i class="fa fa-cloud-upload"></i> Télécharger votre image
+                    </label>
+
+
+                </div>
+                <% }); %>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-container" id="modal">
+    <div class="modal">
+        <!-- <i class="fas fa-heart"></i> -->
+        <p>Etre vous sure de voulois modifier votre compte.</p>
+        <div class="boutton">
+            <button class="btnredirect" onclick="non()">Non</button>
+            <button class="btnredirect" type="submit" id="submit">Oui</button>
+
+        </div>
+        <i id="closer" class="fas fa-times"></i>
+    </div>
+</div>
+
+    <script src="https://kit.fontawesome.com/0eca8d30fc.js" crossorigin="anonymous"></script>
+    <script src="/js/profil.js"></script>
+</body>
+</html>

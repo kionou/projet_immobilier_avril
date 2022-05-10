@@ -60,21 +60,42 @@ const dataAdmin = class {
             
         }
 
+    }
 
-    //  let vv= into.map(el =>{ return el.filename[1]})
-    //   console.log(vv);
+     static AfficheContact = () =>{
+        return new Promise((resolve,reject)=>{
+             let sql ="SELECT * FROM contact  ";
+             base.query(sql,(error,result)=>{
+                if (result) {
+                 /*    console.log('resultat',result); */
+                   
 
+                    resolve(result)
+                } else {
+                    console.log('r=erro',error);
+                    reject(error)
+                }
+            })
+        })
+       
+    }
 
+       static AfficheUser = () =>{
+        return new Promise((resolve,reject)=>{
+             let sql ="SELECT * FROM users  ";
+             base.query(sql,(error,result)=>{
+                if (result) {
+                 /*    console.log('resultat',result); */
+                   
 
-        // let{genre,titre,description,texte}=into;
-        // let sql = "INSERT INTO `admin`( `genre`, `titre`, `description`, `texte`) VALUES (?,?,?,?)";
-        // base.query(sql,[genre,titre,description,texte],(err,result) =>{
-        //     if (result) {
-        //         console.log('result',result);
-        //     } else {
-        //        console.log('error',err); 
-        //     }
-        // })
+                    resolve(result)
+                } else {
+                    console.log('r=erro',error);
+                    reject(error)
+                }
+            })
+        })
+       
     }
 
     

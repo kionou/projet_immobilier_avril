@@ -185,7 +185,7 @@ button:hover{
 .container {
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 50%;
     transform: translate(-50%, -50%);
     width: 370px;
     height: 555px;
@@ -272,4 +272,15 @@ form{
             width: 16rem;
             height: 5rem;
     }
+}
+
+@media (max-width: 400px) {
+   .container{
+       width: 305px;
+       height: 529px;
+   }
+
+   input{
+       width: 27rem;
+   }
 }

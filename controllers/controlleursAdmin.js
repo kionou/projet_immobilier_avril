@@ -1,4 +1,5 @@
 const { request,response } = require("express");
+const dataBien = require("../others/requette");
 const dataAdmin = require("../others/requetteAdmin");
 
 
@@ -6,7 +7,35 @@ const dataAdmin = require("../others/requetteAdmin");
 
 
 
+
 const admin = class {
+
+     static Accueil = (req=request, res= response) =>{
+        res.render('indexAdmin')
+    }
+
+     static views = async (req=request, res= response) =>{
+         let contacts = await dataAdmin.AfficheContact()
+         let users = await dataAdmin.AfficheUser()
+         console.log(users);
+        res.render('bien',{ contact:contacts, user:users})
+    }
+
+
+    static bien = (req=request, res= response) =>{
+
+          dataBien.AfficheBien().then(success=>{
+             res.render('pagebien',{bien:success})
+            
+        }).catch(error=>{
+            console.log('errror',error);
+        })
+       
+
+    }
+
+
+
     static accueilGet = (req=request, res= response) =>{
         res.render('admin')
     }

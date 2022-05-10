@@ -1,5 +1,6 @@
 let express= require('express');
 const controlleurs = require('../controllers/controlleur');
+const upload = require('../midlleware/multer');
 const { ValiderRegistre, validerConnection } = require('../midlleware/validator');
 let router= express.Router();
 
@@ -17,6 +18,9 @@ router.post('/inscription',ValiderRegistre,controlleurs.registrePost)
 router.get('/recherche',controlleurs.search)
 router.get('/profil',controlleurs.AfficheProfil)
 router.get('/logout',controlleurs.logout)
+router.get('/editer/:id',controlleurs.editerUserGet)
+router.post('/editer',upload.single('image'),controlleurs.editerUserPost)
+router.post('/contact',controlleurs.Contact)
 
 
 

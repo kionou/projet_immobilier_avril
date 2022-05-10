@@ -33,7 +33,7 @@ header {
     transform: translate(-50%);
     padding: 1rem;
     transition: .2s linear;
-    z-index: 1000;
+    z-index: 5;
     -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -9px #cacd
@@ -126,23 +126,7 @@ header .fa-bars {
     .text-content{
         font-size: 16px;
     }
-    .cadre{
-        width: 498px;
-        height: 572px;
-    }
-
-    .name{
-        flex-direction: column;
-        border: 1px solid red;
-        width: auto;
-        height: auto;
-    }
-
-    .mail{
-        border: 1px solid blue;
-        width: auto;
-        height: auto;
-    }
+   
 
 }
 
@@ -150,7 +134,7 @@ header .fa-bars {
 
 .ImageHeader {
     background: url('/images/1.jpg') no-repeat center;
-    background-size: 100% 100%;
+    background-size: cover;
     height: 100vh;
     width: 100%;
     text-align: center;
@@ -166,7 +150,7 @@ header .fa-bars {
     border: 1px solid #2288ff;
     position: absolute;
     left: 50%;
-    top: 43%;
+    top: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
     display: flex;
@@ -304,12 +288,12 @@ button:hover {
     left: 0;
     background: rgba(0, 0, 0, .3);
     /* transform: scale(0); */
-    z-index: 1;
+    z-index: 6;
     opacity: 1;
 }
 
 .modal-container .modal{
-    height: 400px;
+    height: 300px;
     max-width: 350px;
     margin: 0 10px;
     padding: 20px;
@@ -322,9 +306,9 @@ button:hover {
     transform: translate(-50%,-50%);
 }
 
-.modal-container .modal h3 {
-    color: #2288ff;
-    margin: 20px 0;
+.modal-container .modal p {
+    font-size: 19px;
+    margin-top: 23px;
 }
 
 .modal-container .modal .fa-times{
@@ -336,6 +320,27 @@ button:hover {
     color: #2288ff;
 }
 
+.btnredirect{
+    width: 9rem;
+    height: 3rem;
+    margin-top: 32px ;
+    text-align: center;
+    border: none;
+    background-color: #2288ff;
+    color: white;
+    border-radius: 5px;
+    font-size: 23px;
+    font-family: 'Roboto Serif',
+    serif;
+}
+
+.btnredirect:hover{
+    background-color: white;
+    color: #2288ff;
+    border: 1px solid #2288ff;
+    cursor: pointer;
+}
+
 
 
 @media  (max-width:900px){
@@ -344,9 +349,64 @@ button:hover {
         height: 100%;
     }
     .cadre{
-        width: 671px;
+        width: 744px;
        /* height: 678px; */
 
     }
     
 }
+
+@media (max-width:1024px) {
+
+    body {
+        height: 100%;
+    }
+
+    .cadre {
+      top: 58%;
+
+    }
+
+}
+
+@media (max-width:770px) {
+
+.cadre {
+    width: 500px;
+}
+
+.name {
+    flex-direction: column;
+    /* border: 1px solid red; */
+    width: auto;
+    height: auto;
+}
+
+.mail {
+    /* border: 1px solid blue; */
+    width: auto;
+    height: auto;
+}
+
+.input {
+    width: 40rem;
+    margin-bottom: 12px;
+}
+.input1{
+        width: 353px;
+}
+
+button{
+    width: 23rem;
+    height: 5rem;
+}
+
+}
+
+@media (max-width:770px) {
+    .cadre{
+        width: 445px;
+    }
+}
+
+

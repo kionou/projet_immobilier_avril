@@ -29,9 +29,10 @@ let modal = document.querySelector('#modal-container');
 let open = document.querySelector('#open');
 let close = document.querySelector('#close');
 
-// open.onclick = function() {
-//     modal.style.display = "block";
-// }
+
+
+
+
 
 close.onclick = function(e) {
     e.preventDefault()
@@ -42,5 +43,13 @@ window.onclick = function(event) {
     event.preventDefault()
     if (event.target == modal) {
         modal.style.display = "none";
+         
     } 
 }
+
+let btnredirect = document.querySelector('.btnredirect')
+btnredirect.addEventListener('click',()=>{
+        //  modal.style.display = "none";
+        location.href = "/connexion"
+})
+

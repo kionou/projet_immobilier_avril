@@ -164,6 +164,7 @@ select{
     padding: 5px;
     outline: none;
     font-family: 'Roboto Serif',  serif;
+    font-size: 15px;
 }
 
 .boutton{
@@ -401,17 +402,15 @@ select{
 
 }
 
-@media (max-width:1024px) {
+@media (min-width:1920px) {
     body {
         padding-top: 86px;
     }
 
     form {
         padding: 50px;
-        width: 70%;
+        width: 50%;
     }
-
-
 }
 
 

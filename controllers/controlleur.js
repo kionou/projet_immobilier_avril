@@ -37,6 +37,7 @@ const controlleurs = class {
     static DetailGet = async (req=request , res=response)=>{
         const id = req.params.id
         const bien = await   dataBien.AfficheBienId(id)
+        // console.log('bien',bien[0].id);
         const image = await  dataBien.AffichePhotoId(id)
         
             res.render('detail',{bien:bien, image:image})
@@ -123,7 +124,7 @@ const controlleurs = class {
                 const show_modal = false
                 res.render('inscription',{alert:error,show_modal})
             })
-        }
+        } 
 
     }
 
@@ -132,9 +133,55 @@ const controlleurs = class {
         res.render('recherche')
     }
 
-    static AfficheProfil =  (req=request , res=response)=>{  
-        res.render('profil')
+    static AfficheProfil =  (req=request , res=response)=>{
+        if (req.session.user) {
+          
+            const id = req.session.user.id
+            dataBien.AfficheUser(id)
+            .then(success=>{
+                // console.log(success);
+                 res.render('profil',{success})
+
+            })
+            .catch(error=>{
+                console.log('errrrorr',error);
+            })
+            
+        } else {
+           res.redirect('/connexion') 
+        }  
     }
+     static editerUserGet =  (req=request , res=response)=>{ 
+       if (req.session.user) {
+            const id = req.session.user.id
+            dataBien.AfficheUser(id)
+            .then(success=>{
+                 res.render('editerProfil',{success})
+
+            })
+            .catch(error=>{
+                console.log('errrrorr',error);
+            })
+            
+        } else {
+           res.redirect('/connexion') 
+        } 
+    }
+
+    static editerUserPost =  (req=request , res=response)=>{
+         dataBien.EditerUser(req.body,req.file)
+         console.log(req.body);
+    }
+
+
+
+    static Contact =  (req=request , res=response)=>{ 
+        dataBien.InsertionContact(req.body)
+        res.redirect('/')
+    //    console.log('body de eidter',req.body);
+    }
+
+   
 
     static logout =  (req=request , res=response)=>{ 
         req.session.destroy() 
