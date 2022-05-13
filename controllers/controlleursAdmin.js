@@ -48,7 +48,7 @@ const admin = class {
 
      static photoPost = (req=request, res= response) =>{
          dataAdmin.insertionphoto(req.body,req.files)
-        res.redirect('/close')
+        res.redirect('/Admin/close')
     }
 
      static close = (req=request, res= response) =>{

@@ -9,7 +9,7 @@ exports.mailer = (into,token)=>{
           pass: 'Laloi2015' 
         },
       });
-    let lien =`http://localhost:7000/connexion/${token}`
+    let lien =`http://192.168.88.11:7000/connexion/${token}`
     let mailOptions = {
         from: 'kionoumohamed@gmail.com', 
         to: into, 

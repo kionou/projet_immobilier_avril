@@ -1,0 +1,1 @@
+Salut pour ouvrir mon application il faut lancé sur le port 7000 et la base de donnee se trouve dans le dossier base_donnee
