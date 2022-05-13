@@ -11,7 +11,6 @@ body {
     height: 100%;
     margin: 0;
     padding-top: 79px;
-    /* padding: 90px 10px 10px; */
     margin-top: 3px;
     background-color: #fafafa;
     font-family: 'Roboto Serif',
@@ -101,7 +100,8 @@ header .fa-bars {
     position: relative;
     width: 60px;
     height: 60px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    background-color: hsl(240deg 7% 97%);;
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
@@ -125,7 +125,7 @@ header .fa-bars {
     border-radius: 10px;
     transition: 0.5s;
     width: 200px;
-    height: 280px;
+    height: 241px;
     visibility: hidden;
     opacity: 0;
     border: 1px solid #2288ff;
@@ -159,7 +159,7 @@ header .fa-bars {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 24%;
+    height: 31%;
     cursor: pointer;
 }
 
@@ -334,6 +334,26 @@ button {
    cursor: pointer;
 }
 
+#open{
+    width: 9rem;
+    height: 3rem;
+    margin-bottom: 10px;
+    text-align: center;
+    border: none;
+    background-color: rgb(247, 50, 50);
+    color: white;
+    border-radius: 5px;
+    font-size: 23px;
+    font-family: 'Roboto Serif',
+    serif;
+}
+#open:hover {
+    background-color: white;
+    color: rgb(247, 50, 50);
+    border: 1px solid rgb(247, 50, 50);
+    cursor: pointer;
+}
+
 input[type="file"] {
     display: none;
 }
@@ -439,7 +459,8 @@ input[type="file"] {
 .profil-content {
     width: 50%;
     height: 556px;
-    border: 1px solid red;
+    border: 1px solid #2288ff;
+    border-radius:10px;
     background-color: white;
     box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
     display: flex;
@@ -453,8 +474,8 @@ input[type="file"] {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 1px solid blue;
     display: flex;
+    background-color: hsl(240deg 7% 97%);;
     justify-content: center;
     margin: 10px 0;
     overflow: hidden;padding: 5px;

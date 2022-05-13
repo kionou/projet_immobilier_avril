@@ -9,9 +9,7 @@ const bcrypt = require("bcryptjs/dist/bcrypt");
 const controlleurs = class {
     static AccueilGet = (req=request , res=response)=>{
         dataBien.AfficheBien()
-        .then(success=>{
-            console.log('sucesssaccau',success)
-          
+        .then(success=>{          
             res.render('index',{success})
         })
         .catch(error=>{
@@ -20,12 +18,9 @@ const controlleurs = class {
     }
 
      static AccueilPost = (req=request , res=response)=>{
-        console.log('sdtuyuodlfmjglkmhl',req.body);
          dataBien.rechercheBien(req.body)
         .then(success=>{
-                  console.log('suuuccess',success);
-                  res.render('recherche',{alert:success})
-            
+                  res.render('recherche',{alert:success})     
         })
         .catch(error=>{
             console.log('errror',error);
@@ -37,11 +32,8 @@ const controlleurs = class {
     static DetailGet = async (req=request , res=response)=>{
         const id = req.params.id
         const bien = await   dataBien.AfficheBienId(id)
-        // console.log('bien',bien[0].id);
         const image = await  dataBien.AffichePhotoId(id)
-        
-            res.render('detail',{bien:bien, image:image})
-        
+         res.render('detail',{bien:bien, image:image})    
     }
 
 
@@ -49,8 +41,7 @@ const controlleurs = class {
         if (req.session.user) {
             res.redirect('/profil')
         } else {
-        res.render('connexion')
-            
+        res.render('connexion')         
         } 
     }
 
@@ -65,25 +56,22 @@ const controlleurs = class {
                 let password = req.body.password;
                 let  hash = success.password;
                 let  dataUser = {
-                       id:success.id,    
+                       id:success.id, 
+                       nom:success.nom,
+                       photo:success.image   
               }
                let passwordUser = bcrypt.compareSync(password,hash);
               if (  passwordUser) {
                   req.session.user= dataUser;
                   console.log('ma session est :',req.session);
-                   res.redirect('/profil')
+                   res.redirect('/profil',)
               } else {
                  res.render('connexion',{alert:'mot de passe incorrect'}) 
               }
-
-
             }).catch(error =>{
-
                 res.render('connexion',{alert:'Email ou le Mot de passe incorrect !'})
             })
-
         }
-    
     }
 
 
@@ -104,12 +92,10 @@ const controlleurs = class {
 
     static registrePost =  (req=request , res=response)=>{
          const result = validationResult(req)
-
         if (!result.isEmpty() ) {
-            const error = result.mapped()
-            console.log('rrfrrkrk',error ); 
-        const show_modal = false
-
+             const error = result.mapped()
+             console.log('rrfrrkrk',error ); 
+             const show_modal = false
              res.render('inscription.ejs',{alert:error,show_modal})
         }
         else{
@@ -117,31 +103,26 @@ const controlleurs = class {
                 const token= jsonwt.CreerToken(req.body);
                 mailer(req.body.email,token)
                 const show_modal = req.body.modal
-                res.render("inscription",{show_modal})
-                
-                  
+                res.render("inscription",{show_modal})     
             }).catch(error=>{
                 const show_modal = false
                 res.render('inscription',{alert:error,show_modal})
             })
         } 
-
     }
 
     
     static search =  (req=request , res=response)=>{  
         res.render('recherche')
     }
-
     static AfficheProfil =  (req=request , res=response)=>{
         if (req.session.user) {
-          
+
             const id = req.session.user.id
             dataBien.AfficheUser(id)
             .then(success=>{
                 // console.log(success);
                  res.render('profil',{success})
-
             })
             .catch(error=>{
                 console.log('errrrorr',error);
@@ -157,7 +138,6 @@ const controlleurs = class {
             dataBien.AfficheUser(id)
             .then(success=>{
                  res.render('editerProfil',{success})
-
             })
             .catch(error=>{
                 console.log('errrrorr',error);
@@ -170,6 +150,7 @@ const controlleurs = class {
 
     static editerUserPost =  (req=request , res=response)=>{
          dataBien.EditerUser(req.body,req.file)
+         res.redirect('/profil')
          console.log(req.body);
     }
 
@@ -178,10 +159,13 @@ const controlleurs = class {
     static Contact =  (req=request , res=response)=>{ 
         dataBien.InsertionContact(req.body)
         res.redirect('/')
-    //    console.log('body de eidter',req.body);
     }
 
-   
+     static supprimer =  (req=request , res=response)=>{ 
+       let id = req.params.id
+           dataBien.suppUser(id)
+          res.redirect('/logout')
+    }
 
     static logout =  (req=request , res=response)=>{ 
         req.session.destroy() 

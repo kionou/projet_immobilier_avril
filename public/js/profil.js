@@ -1,12 +1,8 @@
-console.log('bonjour');
-
 
 function menuToggle(){
     const menuToggle= document.querySelector('.menu');
     menuToggle.classList.toggle('active')
 }
-
-
 
 function logout(){
     location.href = "/logout"
@@ -16,15 +12,21 @@ function non(){
     location.href = "/profil"
 }
 
+function supp(id) {  
+    location.href ='/delete/' + id    
+}
+
+function editer(id) {  
+    window.location ='/editer/' + id    
+}
+
 let modale = document.querySelector('#modal');
-let opene = document.querySelector('#opene');
+let open = document.querySelector('#open');
 let closer = document.querySelector('#closer');
 
-console.log(opene);
 
 
-
-opene.onclick = function() {
+open.onclick = function() {
     modale.style.display = "block";
 }
 
@@ -33,76 +35,53 @@ closer.onclick = function(e) {
     modale.style.display = "none";
 } 
 
-window.onclick = function(event) {
+/* window.onclick = function(event) {
     event.preventDefault()
     if (event.target == modale) {
         modale.style.display = "none";
-         
     } 
-}
+} */
 
 
-let barre = document.querySelector('.barre');
-let inpute = document.querySelector('.input-content');
-let profile = document.querySelector('.container-profil')
-let elements = document.querySelectorAll('#inputvalue')
-console.log(elements);
+// let barre = document.querySelector('.barre');
+// let inpute = document.querySelector('.input-content');
+// let profile = document.querySelector('.container-profil')
+
+
 
 let formulaire = document.querySelector('#form');
 let envoyer = document .querySelector('#submit')
 
 
-// envoyer.addEventListener('click', (e)=>{
-//   console.log('qfsqgbds',e.target);
-//   console.log('formulaire',formulaire);
-//   e.preventDefault()
+envoyer.addEventListener('click',async (e)=>{
+  console.log('qfsqgbds',e.target);
+  console.log('formulaire',formulaire);
+  e.preventDefault()
  
 
-//   const url = 'http://localhost:7000/editer';
-//   let data = new FormData(formulaire)
+  const url = 'http://localhost:7000/editer';
+  let data = new FormData(formulaire)
+  let dataSerialized = Object.fromEntries(data);
+  const jsonObject = {...dataSerialized,
+    sendToSelf : dataSerialized.sendToself ? true : false,
 
-//   console.log('data',data.keys);
-// //   console.warn(xhr.responseText)
+}
+  console.log('dataSerialized',jsonObject);
 
-// //   var request = new Request(url, {
-// //     method: 'POST',
-// //     body: data,
-// //   })
+try {
+ const response =  await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(jsonObject),
+    headers: { 
+       'content-type': 'application/json'
+    }
+     });
+     const json = await response.json()
+     console.log(json);
+} catch (e) {
+    console.log('errr',e);
+}
 
-//   fetch(url, {
-//     method: 'POST',
-//     body: data,
-//     // headers: { 
-//     //    'content-type': 'text/plain'
-//     // }
-    
-//   })
-// .then(function(res) {
-//   console.log('resqqq',res);
-// }).catch(function (err) {
-//     console.log('front ero',err);
-// })
-// })
+})
 
-    envoyer.addEventListener('click', (e)=>{
-        e.preventDefault()
-        var formData ;
-        for (let i = 0; i < elements.length; i++) {
-            formData= JSON.stringify(elements[i].name,elements[i].value)  
-        console.log(elements[i].name);
 
-        }
-        let xhr = new XMLHttpRequest();
-        const url = 'http://localhost:7000/editer';
-        let data = new FormData(formData)
-         xhr.open("post",url,true);
-         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-          xhr.onreadystatechange = function () {
-        if(xhr.readyState === 4 && xhr.status === 200){
-        console.log(xhr.responseText);
-
-        }
-    };
-    xhr.send(formData)
-
-    })

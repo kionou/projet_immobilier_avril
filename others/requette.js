@@ -164,15 +164,37 @@ const dataBien = class {
 
      static EditerUser = (into,photo) =>{
          console.log('rrr',into);
-        return new Promise((resolve,reject)=>{
-                let{nom,prenom,email,numero,password,lieu,id}=into;
-                let sql="UPDATE `users` SET `nom`=?,`prenom`=?,`email`=?,`numero`=?`,`lieu`=?`image`=? WHERE id = ?"
+         console.log('rrr',photo);
 
-             base.query(sql,[nom,prenom,email,numero,lieu,photo.path,id],(error,result)=>{
+        return new Promise((resolve,reject)=>{
+                let{nom,prenom,email,numero,lieu,password,id}=into;
+                let sql="UPDATE `users` SET `nom`=?,`prenom`=?,`email`=?,`numero`=?,`lieu`=?,`password`=? ,`image`=? WHERE id = ?"
+
+             base.query(sql,[nom,prenom,email,numero,lieu,password,photo.path,id],(error,result)=>{
                 if (result) {
-                 /*    console.log('resultat',result); */
+                    console.log('resultat',result); 
                    
 
+                    resolve(result)
+                } else {
+                    console.log('r=erro',error);
+                    reject(error)
+                }
+            })
+        })
+       
+    }
+
+
+     static suppUser = (id) =>{
+     
+        return new Promise((resolve,reject)=>{
+               
+                let sql="DELETE FROM `users` WHERE id = ?"
+
+             base.query(sql,[id],(error,result)=>{
+                if (result) {
+                 /*    console.log('resultat',result); */
                     resolve(result)
                 } else {
                     console.log('r=erro',error);

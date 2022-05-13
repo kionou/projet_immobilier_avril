@@ -5,7 +5,9 @@
 }
 
 body {
-    background-color: #fafafa;
+    background:url('images/6.jpg') no-repeat center;
+    background-size: cover;
+    height: 100vh;
 }
 
 
@@ -17,10 +19,13 @@ body {
 }
 
 .left {
-    border: 1px solid red;
+    border: 1px solid #2288ff;
     width: 30%;
     height: 100vh;
     display: block;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-right: 3px;
 }
 
 .right {
@@ -46,11 +51,24 @@ body {
     border: 1px solid #2288ff;
 }
 
-
 .logo{
-    width: 100%;
+    width: 120px;
     height: 120px;
-    border: 1px solid black;
+    border-radius: 50%;
+    background-color: #fbfbfb;
+}
+
+.logo  img{
+    width: 100%;
+    height: 100%;
+   
+}
+
+.vvv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
 }
 
 
@@ -119,6 +137,24 @@ body {
 
  .menu ul li:hover a {
     color: #2288ff;
+}
+.vv {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 70%;
+    height: auto;
+    border: 1px solid #2288ff;
+    align-content: center;
+    justify-content: center;
+    background-color: white;
+    align-items: center;
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 20%); */
+    border-radius: 10px;
+    display: flex;
+    padding: 20px;
+    margin-bottom: 10px;
 }
 
 .tableau{

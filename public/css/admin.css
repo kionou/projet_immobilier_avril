@@ -5,7 +5,11 @@
 }
 
 body{
-    background-color: #fafafa;
+    
+        background: url('/images/6.jpg') no-repeat center;
+        background-size: cover;
+        height: 100vh;
+    
 }
 
 .container{
@@ -20,8 +24,13 @@ body{
     justify-content: center;
     background-color: white;
     align-items: center;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+    display: flex;
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 20%); */
     border-radius: 10px;
+}
+
+.form-control{
+    width: 153% !important;
 }
 .boutton{
     width: 60%;
@@ -30,4 +39,10 @@ body{
         justify-content: center;
         align-items: center;
         flex-direction: column;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2288ff;
+    width: 220px;
 }

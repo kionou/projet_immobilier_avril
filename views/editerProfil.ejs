@@ -18,8 +18,8 @@
     <nav class="navbar">
         <ul>
 
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/#contact">Contact</a></li>
 
             <!-- <li><button><a href="/logout">Mon compte</a></button></li> -->
         </ul>
@@ -28,7 +28,7 @@
         <% success.forEach(function(user){ %>
             <div class="image" onclick="menuToggle()">
                 <div class="profile">
-                    <img src="<%=user.image %>" alt="">
+                    <img src="/<%=user.image %>" alt="">
                 </div>
                 <p>
                     <%=user.nom %>
@@ -43,7 +43,7 @@
                             <li ><img src="/images/editer.png" alt=""><a href="eidter/<%=user.id %>">Modifier
                                     profil</a></li>
                             <% }); %>
-                                <li><img src="/images/search.png" alt=""><a href="#">Recherche</a></li>
+                                <!-- <li><img src="/images/search.png" alt=""><a href="#">Recherche</a></li> -->
                                 <li onclick="logout()"><img src="/images/logout.png" alt=""><a href="/logout">Se
                                         déconnecter</a></li>
                     </ul>
@@ -56,7 +56,7 @@
         <div class="barre">
             <div class="barre-content">
                 <p>Modifier mon compte</p>
-                <button id="open">Sauvegarder</button>
+                <button id="ope" >Sauvegarder</button>
 
 
             </div>
@@ -64,7 +64,6 @@
         <div class="Input">
             <% success.forEach(function(user){ %>
                 <div class="input-content">
-                    <input type="hidden" name="id" value="<%=user.id %>" > 
                     <input type="text" name="nom" id="inputvalue" value="<%=user.nom %>" placeholder="Nom">
                     <input type="text" name="prenom" id="inputvalue" value="<%=user.prenom %>" placeholder="Prenom">
                     <input type="email" name="email" id="inputvalue" value="<%=user.email %>" placeholder="Adresse Email">
@@ -72,9 +71,10 @@
                     <input type="text" name="lieu" id="inputvalue" value="<%=user.lieu %>" placeholder="Ville actuelle">
                     <input type="hidden" name="password" value="<%=user.password %>">
                     <label id="image">
-                        <input type="file" class="inputfile" value="<%=user.image %>" name="image">
+                        <input type="file" class="inputfile"  name="image">
                         <i class="fa fa-cloud-upload"></i> Télécharger votre image
                     </label>
+                    <input type="hidden" name="id" value="<%=user.id %>">
 
 
                 </div>
@@ -83,19 +83,20 @@
 
     </form>
 </div>
-
 <div class="modal-container" id="modal">
     <div class="modal">
         <!-- <i class="fas fa-heart"></i> -->
         <p>Etre vous sure de voulois modifier votre compte.</p>
         <div class="boutton">
             <button class="btnredirect" onclick="non()">Non</button>
-            <button class="btnredirect" type="submit" id="submit">Oui</button>
+            <button  class="btnredirect" type="submit" id="submit">Oui</button>
 
         </div>
         <i id="closer" class="fas fa-times"></i>
     </div>
 </div>
+
+
 
     <script src="https://kit.fontawesome.com/0eca8d30fc.js" crossorigin="anonymous"></script>
     <script src="/js/profil.js"></script>

@@ -7,6 +7,7 @@ let routerAdmin = express.Router()
   routerAdmin.get('/',admin.Accueil)
   routerAdmin.get('/voiruser',admin.views)
   routerAdmin.get('/voirbien',admin.bien)
+  routerAdmin.get('/close',admin.close)
 
 
   routerAdmin.get('/admin',admin.accueilGet)

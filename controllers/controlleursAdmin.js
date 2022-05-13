@@ -17,34 +17,25 @@ const admin = class {
      static views = async (req=request, res= response) =>{
          let contacts = await dataAdmin.AfficheContact()
          let users = await dataAdmin.AfficheUser()
-         console.log(users);
         res.render('bien',{ contact:contacts, user:users})
     }
 
 
     static bien = (req=request, res= response) =>{
-
           dataBien.AfficheBien().then(success=>{
-             res.render('pagebien',{bien:success})
-            
+             res.render('pagebien',{bien:success})    
         }).catch(error=>{
             console.log('errror',error);
         })
-       
-
     }
-
-
 
     static accueilGet = (req=request, res= response) =>{
         res.render('admin')
     }
     static accueil = (req=request, res= response) =>{
-        console.log('refff',req.body);
         dataAdmin.insertionBien(req.body,req.file.path).then(success=>{
-            console.log('successs',success.insertId);
-            let id = success.insertId
-        res.render('photo',{id:id})
+         let id = success.insertId
+         res.render('photo',{id:id})
 
         }).catch(error=>{
             console.log('errror',error);
@@ -56,15 +47,15 @@ const admin = class {
     }
 
      static photoPost = (req=request, res= response) =>{
-
          dataAdmin.insertionphoto(req.body,req.files)
-    //    console.log('phottttooo',req.files);
-        res.send('enregistrer')
+        res.redirect('/close')
+    }
+
+     static close = (req=request, res= response) =>{
+        res.render('close')
     }
 
 }
-
-
 
 
 module.exports=admin;

@@ -21,6 +21,7 @@ router.get('/logout',controlleurs.logout)
 router.get('/editer/:id',controlleurs.editerUserGet)
 router.post('/editer',upload.single('image'),controlleurs.editerUserPost)
 router.post('/contact',controlleurs.Contact)
+router.get('/delete/:id',controlleurs.supprimer)
 
 
 

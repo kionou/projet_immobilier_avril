@@ -131,7 +131,7 @@ header .fa-bars {
 
 
 .ImageHeader {
-    background: url('/images/1.jpg') no-repeat center;
+    background: url('/images/4.jpg') no-repeat center;
     background-size: 100% 100%;
     height: 100vh;
     width: 100%;
@@ -228,6 +228,23 @@ form{
     flex-direction: column;
     align-items: center;
     padding: 18px;
+}
+
+.sanp{
+    background-color: #2288ff;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Roboto Serif',
+    serif;
+    text-decoration: none;
+    padding: 5px;
+}
+.sanp:hover {
+    background-color: white;
+    color: #2288ff;
+    border: 1px solid #2288ff;
+    cursor: pointer;
 }
 
 .validation{

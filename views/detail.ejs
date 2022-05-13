@@ -93,30 +93,13 @@
                     <img src="/<%= image.nom %>" alt="">
                 </div>
                 <% }); %>
-                <!-- <div class="Images">
-                    <img src="/images/2.jpg" alt="">
-                </div>
-                <div class="Images">
-                    <img src="/images/3.jpg" alt="">
-                </div>
-                <div class="Images">
-                    <img src="/images/1.jpg" alt="">
-                </div>
-                <div class="Images">
-                    <img src="/images/2.jpg" alt="">
-                </div>
-                <div class="Images">
-                    <img src="/images/3.jpg" alt="">
-                </div> -->
             </div>
             <% }); %>
-
             <div class="container-message">
                 <h3>Pour plus de detail contactez-nous</h3>
                 <div class="message">
                     <% bien.forEach(function(bien){ %>
                     <form action="/contact " method="post">
-                        
                         <input type="text" name="nom" placeholder="Nom">
                         <input type="email" name="email" placeholder="Adresse Email">
                         <input type="tel" name="numero" placeholder="Numero">
@@ -128,15 +111,10 @@ Cordialement,
                         <button type="submit" value="Submit">Demander des infos</button>
                     </form>
             <% }); %>
-
                 </div>
             </div>
         </div>
    
-
-
-
-
     <script src="https://kit.fontawesome.com/0eca8d30fc.js" crossorigin="anonymous"></script>
     <script src="/js/main.js"></script>
 </body>

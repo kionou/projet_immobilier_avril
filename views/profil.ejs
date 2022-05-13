@@ -19,8 +19,8 @@
         <nav class="navbar">
             <ul>
                 
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/#contact">Contact</a></li>
                 
                 <!-- <li><button><a href="/logout">Mon compte</a></button></li> -->
             </ul>
@@ -39,9 +39,9 @@
                         <% success.forEach(function(user){ %>
                     <li><img src="/images/user.png" alt=""><a href="/profil" >Voir profil</a></li>
                 
-                    <li><img src="/images/editer.png" alt=""><a href="editer/<%=user.id %>" >Modifier profil</a></li>
+                    <li  onclick="editer('<%= user.id %>')"><img src="/images/editer.png" alt=""><a  >Modifier profil</a></li>
                     <% }); %>
-                    <li><img src="/images/search.png" alt=""><a href="#">Recherche</a></li>
+                    <!-- <li><img src="/images/search.png" alt=""><a href="#">Recherche</a></li> -->
                     <li onclick="logout()"><img src="/images/logout.png" alt=""><a href="/logout" >Se déconnecter</a></li>
                 </ul>
             </div>
@@ -66,11 +66,28 @@
                     <p>Ville Actuelle : <span><%= user.lieu %></span></p>
 
                 </div>
-            </div>  
+            </div> 
+            <button id="open" >supprimer</button>
         </div>
+        
         <% }); %>
     </div>
+<% success.forEach(function(user){ %>
+    <div class="modal-container" id="modal">
+        <div class="modal">
+            <!-- <i class="fas fa-heart"></i> -->
+            <p>Etre vous sure de voulois supprimer votre compte.</p>
+            <div class="boutton">
+                <button class="btnredirect" onclick="non()">Non</button>
+                <button  onclick="supp('<%= user.id %>')" class="btnredirect" >Oui</button>
+    
+            </div>
+            <i id="closer" class="fas fa-times"></i>
+        </div>
+    </div>
+    <% }); %>
 
+   
 
 
     <script src="https://kit.fontawesome.com/0eca8d30fc.js" crossorigin="anonymous"></script>
