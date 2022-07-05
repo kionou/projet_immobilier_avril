@@ -49,6 +49,11 @@
            <h2>Les biens qui pourraient vous intéresser</h2>
        </div>
        <div class="content-info">
+        <% if (success=='' ) { %>
+            <div class="noresult">
+                <p>Aucune Cathegorie disponible pour le moment  !</p>
+            </div>
+            <% } else if (success ){%>
          <% success.forEach(function(bien){ %>
         <div class="content-card">
             <div class="card-image">
@@ -92,6 +97,8 @@
             </div>
         </div>
         <% }); %>
+        <% } %>
+        
        </div>
         <div class="content-texte">
             <h2>CONTACTEZ-NOUS</h2>
