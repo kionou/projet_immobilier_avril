@@ -9,7 +9,8 @@ const bcrypt = require("bcryptjs/dist/bcrypt");
 const controlleurs = class {
     static AccueilGet = (req=request , res=response)=>{
         dataBien.AfficheBien()
-        .then(success=>{          
+        .then(success=>{   
+            console.log(success);       
             res.render('index',{success})
         })
         .catch(error=>{

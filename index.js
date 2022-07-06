@@ -1,13 +1,13 @@
 const express = require('express');
 const session = require('express-session');
-const base = require('./others/data');
+const client = require('./others/data');
 const router = require('./router/routeAccueil');
 const routerAdmin = require('./router/routeAdmin');
 const app = express();
 
 
 
-base.connect((err) =>{
+client.connect((err) =>{
     if (!err) {
         console.log('connexion a la base de donnée');        
         app.set('view engine','ejs');

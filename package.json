@@ -2,9 +2,10 @@
   "name": "projet_immobilier_avril",
   "version": "1.0.0",
   "description": "projet d'immobilier pour le mois d'avril",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,6 @@
     "multer": "^1.4.4",
     "mysql": "^2.18.1",
     "nodemailer": "^6.7.5",
-    "pg-pool": "^3.5.1"
+    "pg": "^8.7.3"
   }
 }
